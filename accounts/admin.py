@@ -10,7 +10,7 @@ from .models import User
 
 class UserAdmin(BaseUserAdmin):
 
-    list_display = ['email','username', 'first_name', 'last_name', 'is_staff','is_active']
+    list_display = ['email','username', 'first_name', 'last_name', 'is_staff','is_active','is_verified']
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email', )
 

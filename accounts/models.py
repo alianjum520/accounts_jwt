@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
-
 from rest_framework_simplejwt.tokens import RefreshToken
 
 
@@ -9,7 +8,9 @@ class User(AbstractUser):
 
     username = models.CharField(max_length = 50, blank = True, null = True, unique = True)
     email = models.EmailField(_('email address'), unique = True)
+    is_verified = models.BooleanField(default=False)
     time_stamp = models.DateTimeField(auto_now_add=True)
+
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
